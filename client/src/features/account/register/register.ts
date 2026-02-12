@@ -10,15 +10,15 @@ import { AccountService } from '../../../core/services/account-service';
   styleUrl: './register.css',
 })
 export class Register {
-   private accountService = inject(AccountService);
+  private accountService = inject(AccountService);
   protected creds = {} as RegisterCreds;
 
-   cancelRegister = output<boolean>();
+  cancelRegister = output<boolean>();
 
   register() {
     this.accountService.register(this.creds).subscribe({
       next: response => {
-        console.log(this.creds);
+        console.log(response);
         this.cancel();
       },
       error: error => console.log(error)
